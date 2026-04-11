@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SEO Meta Tags -->
+<title>GhostInbox — Free Temporary Email | Disposable Email Address</title>
+<meta name="description" content="GhostInbox gives you a free disposable temporary email address instantly. No signup needed. 60+ domains including Gmail, Outlook, Yahoo. Protect your privacy online.">
+<meta name="keywords" content="temp mail, temporary email, disposable email, fake email, throwaway email, free temp mail, ghostinbox, anonymous email">
+<meta name="author" content="GhostInbox">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://ghostinbox.netlify.app/">
+
+<!-- Open Graph -->
+<meta property="og:title" content="GhostInbox — Free Temporary Email Address">
+<meta property="og:description" content="Get a free disposable email instantly. No signup. 60+ domains. Protect your inbox from spam.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ghostinbox.netlify.app/">
+<meta property="og:image" content="https://ghostinbox.netlify.app/og.png">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GhostInbox — Free Temp Mail">
+<meta name="twitter:description" content="Instant disposable email. No signup. 60+ domains.">
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "GhostInbox",
+  "url": "https://ghostinbox.netlify.app/",
+  "description": "Free temporary disposable email address service. No signup required.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+}
+</script>
+
+<!-- Adsterra Popunder -->
+<script src="https://pl29117362.profitablecpmratenetwork.com/1a/86/c7/1a86c7dc5e00213d9ea91979a806de2f.js"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #080810;
+  --surface: #0e0e1a;
+  --card: #13131f;
+  --border: #1e1e30;
+  --accent: #8b5cf6;
+  --accent-bright: #a78bfa;
+  --accent2: #06d6a0;
+  --text: #e2e2f0;
+  --muted: #5a5a7a;
+  --danger: #f43f5e;
+  --ghost: rgba(139,92,246,0.08);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'DM Sans',sans-serif;
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+/* Ghost particles bg */
+.bg-particles{
+  position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;
+}
+.particle{
+  position:absolute;
+  width:300px;height:300px;
+  border-radius:50%;
+  filter:blur(80px);
+  opacity:0.06;
+  animation:float 8s ease-in-out infinite;
+}
+.p1{background:#8b5cf6;top:-50px;left:-50px;animation-delay:0s;}
+.p2{background:#06d6a0;bottom:-50px;right:-50px;animation-delay:3s;}
+.p3{background:#8b5cf6;top:50%;left:50%;animation-delay:6s;}
+
+@keyframes float{
+  0%,100%{transform:translateY(0) scale(1);}
+  50%{transform:translateY(-30px) scale(1.05);}
+}
+
+/* Grid overlay */
+body::before{
+  content:'';position:fixed;inset:0;
+  background-image:linear-gradient(rgba(139,92,246,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(139,92,246,0.04) 1px,transparent 1px);
+  background-size:50px 50px;
+  pointer-events:none;z-index:0;
+}
+
+.container{
+  position:relative;z-index:1;
+  max-width:860px;margin:0 auto;
+  padding:40px 20px 80px;
+}
+
+/* ===== NAV ===== */
+nav{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:20px 0 50px;
+}
+.nav-logo{
+  display:flex;align-items:center;gap:10px;
+  text-decoration:none;
+}
+.ghost-icon{
+  width:38px;height:38px;
+  background:linear-gradient(135deg,#8b5cf6,#06d6a0);
+  border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px;
+  box-shadow:0 0 20px rgba(139,92,246,0.4);
+}
+.nav-name{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:26px;letter-spacing:2px;
+  background:linear-gradient(135deg,#a78bfa,#06d6a0);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.nav-badge{
+  background:rgba(6,214,160,0.1);
+  border:1px solid rgba(6,214,160,0.3);
+  color:#06d6a0;
+  font-size:11px;font-weight:600;
+  padding:5px 12px;border-radius:20px;
+  letter-spacing:0.5px;
+}
+
+/* ===== HERO ===== */
+.hero{
+  text-align:center;margin-bottom:48px;
+  animation:fadeDown 0.8s ease;
+}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(139,92,246,0.1);
+  border:1px solid rgba(139,92,246,0.25);
+  border-radius:20px;padding:6px 16px;
+  font-size:12px;font-weight:600;
+  color:var(--accent-bright);
+  letter-spacing:1px;text-transform:uppercase;
+  margin-bottom:20px;
+}
+.hero h1{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(52px,10vw,88px);
+  line-height:0.9;
+  letter-spacing:3px;
+  margin-bottom:20px;
+}
+.h1-line1{
+  display:block;
+  background:linear-gradient(135deg,#e2e2f0,#a78bfa);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.h1-line2{
+  display:block;
+  background:linear-gradient(135deg,#06d6a0,#a78bfa);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.hero-sub{
+  font-size:17px;color:var(--muted);
+  max-width:480px;margin:0 auto 10px;
+  line-height:1.6;font-weight:300;
+}
+.hero-stats{
+  display:flex;gap:28px;justify-content:center;flex-wrap:wrap;
+  margin-top:28px;
+}
+.stat{
+  display:flex;align-items:center;gap:7px;
+  font-size:13px;color:var(--muted);font-weight:500;
+}
+.stat-dot{width:6px;height:6px;border-radius:50%;background:var(--accent2);}
+
+/* ===== CARDS ===== */
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:28px;
+  margin-bottom:16px;
+  position:relative;overflow:hidden;
+}
+.card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(139,92,246,0.5),rgba(6,214,160,0.5),transparent);
+}
+.card-label{
+  font-size:10px;font-weight:700;
+  color:var(--accent-bright);
+  letter-spacing:2.5px;text-transform:uppercase;
+  margin-bottom:16px;opacity:0.8;
+}
+
+/* Domain grid */
+.domain-group{margin-bottom:14px;}
+.domain-group-name{
+  font-size:10px;font-weight:600;color:var(--muted);
+  letter-spacing:1.5px;text-transform:uppercase;
+  margin-bottom:8px;
+}
+.domain-chips{display:flex;flex-wrap:wrap;gap:6px;}
+.chip{
+  padding:5px 12px;border-radius:30px;
+  border:1px solid var(--border);
+  font-size:11px;font-weight:500;
+  color:var(--muted);cursor:pointer;
+  transition:all 0.18s;background:transparent;
+  font-family:'DM Sans',sans-serif;
+}
+.chip:hover{border-color:var(--accent);color:var(--accent-bright);background:var(--ghost);}
+.chip.sel{background:rgba(139,92,246,0.15);border-color:var(--accent);color:var(--accent-bright);font-weight:700;}
+.chip.cg{border-color:rgba(234,67,53,0.35);color:#f87171;}
+.chip.cg:hover,.chip.cg.sel{background:rgba(234,67,53,0.1);border-color:#f87171;color:#f87171;}
+.chip.cm{border-color:rgba(59,130,246,0.35);color:#60a5fa;}
+.chip.cm:hover,.chip.cm.sel{background:rgba(59,130,246,0.1);border-color:#60a5fa;color:#60a5fa;}
+.chip.cy{border-color:rgba(168,85,247,0.35);color:#c084fc;}
+.chip.cy:hover,.chip.cy.sel{background:rgba(168,85,247,0.1);border-color:#c084fc;color:#c084fc;}
+.chip.ca{border-color:rgba(156,163,175,0.3);color:#9ca3af;}
+.chip.ca:hover,.chip.ca.sel{background:rgba(156,163,175,0.1);border-color:#d1d5db;color:#d1d5db;}
+
+/* Email builder */
+.email-builder{
+  display:flex;align-items:center;gap:8px;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:14px 18px;
+  margin-bottom:14px;
+  flex-wrap:wrap;
+  transition:border-color 0.2s;
+}
+.email-builder:focus-within{border-color:var(--accent);}
+.uname-inp{
+  flex:1;min-width:100px;
+  background:transparent;border:none;outline:none;
+  font-family:'DM Sans',monospace;font-size:16px;
+  color:var(--accent2);font-weight:600;
+  caret-color:var(--accent2);
+}
+.uname-inp::placeholder{color:var(--muted);font-weight:400;font-size:14px;}
+.at{font-size:18px;color:var(--muted);font-weight:700;font-family:monospace;}
+.domain-display{font-size:15px;color:var(--accent-bright);font-weight:600;font-family:monospace;}
+
+.btns{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.btn{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:10px 20px;border-radius:10px;
+  font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;
+  cursor:pointer;border:none;transition:all 0.18s;white-space:nowrap;
+}
+.btn-accent{background:linear-gradient(135deg,#8b5cf6,#7c3aed);color:#fff;}
+.btn-accent:hover{background:linear-gradient(135deg,#a78bfa,#8b5cf6);transform:translateY(-1px);box-shadow:0 8px 24px rgba(139,92,246,0.35);}
+.btn-green{background:rgba(6,214,160,0.1);color:#06d6a0;border:1px solid rgba(6,214,160,0.3);}
+.btn-green:hover{background:rgba(6,214,160,0.18);border-color:#06d6a0;}
+.btn-ghost-btn{background:transparent;color:var(--text);border:1px solid var(--border);}
+.btn-ghost-btn:hover{border-color:var(--accent);color:var(--accent-bright);background:var(--ghost);}
+.btn-red{background:transparent;color:var(--danger);border:1px solid rgba(244,63,94,0.25);}
+.btn-red:hover{background:rgba(244,63,94,0.08);border-color:var(--danger);}
+.btn-sm{padding:8px 14px;font-size:12px;border-radius:8px;}
+.timer{
+  margin-left:auto;
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(6,214,160,0.08);
+  border:1px solid rgba(6,214,160,0.2);
+  border-radius:20px;padding:6px 14px;
+  font-size:12px;font-weight:600;color:#06d6a0;
+  font-family:monospace;
+}
+.blink{animation:blink 1s step-end infinite;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0;}}
+
+/* Inbox */
+.inbox-top{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:20px 24px;border-bottom:1px solid var(--border);
+}
+.inbox-title{font-size:15px;font-weight:700;display:flex;align-items:center;gap:10px;}
+.count{
+  background:var(--accent);color:#fff;
+  font-size:10px;font-weight:700;
+  padding:2px 8px;border-radius:20px;
+}
+.empty{padding:56px 20px;text-align:center;}
+.empty-emoji{font-size:44px;margin-bottom:14px;opacity:0.35;}
+.empty-t{font-size:15px;font-weight:600;opacity:0.4;margin-bottom:8px;}
+.empty-s{font-size:12px;color:var(--muted);font-family:monospace;}
+.mail-item{
+  padding:18px 24px;border-bottom:1px solid var(--border);
+  cursor:pointer;transition:background 0.15s;position:relative;
+}
+.mail-item:last-child{border-bottom:none;}
+.mail-item:hover{background:rgba(139,92,246,0.04);}
+.mail-item.unread::before{
+  content:'';position:absolute;left:10px;top:50%;transform:translateY(-50%);
+  width:5px;height:5px;border-radius:50%;background:var(--accent2);
+  box-shadow:0 0 6px var(--accent2);
+}
+.mi-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:5px;}
+.mi-from{font-weight:700;font-size:13px;}
+.mi-time{font-size:11px;color:var(--muted);font-family:monospace;}
+.mi-subj{font-size:13px;margin-bottom:4px;opacity:0.75;}
+.mi-prev{font-size:11px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-family:monospace;}
+
+/* Modal */
+.overlay{
+  position:fixed;inset:0;
+  background:rgba(0,0,0,0.85);backdrop-filter:blur(12px);
+  z-index:200;display:flex;align-items:center;justify-content:center;
+  padding:20px;opacity:0;pointer-events:none;transition:opacity 0.25s;
+}
+.overlay.open{opacity:1;pointer-events:all;}
+.modal{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:20px;width:100%;max-width:600px;
+  max-height:85vh;overflow-y:auto;
+  transform:translateY(24px);transition:transform 0.25s;
+}
+.overlay.open .modal{transform:translateY(0);}
+.modal-hd{
+  padding:22px 26px;border-bottom:1px solid var(--border);
+  position:sticky;top:0;background:var(--card);z-index:1;
+}
+.mfrom{font-size:12px;color:var(--muted);font-family:monospace;margin-bottom:7px;}
+.msubj{font-size:19px;font-weight:700;margin-bottom:14px;}
+.mmeta{display:flex;justify-content:space-between;align-items:center;}
+.mbody{
+  padding:22px 26px;font-size:14px;line-height:1.9;
+  font-family:monospace;white-space:pre-wrap;word-break:break-word;
+  color:var(--text);opacity:0.8;
+}
+
+/* Toast */
+.toast{
+  position:fixed;bottom:28px;left:50%;
+  transform:translateX(-50%) translateY(70px);
+  background:var(--card);border:1px solid rgba(139,92,246,0.5);
+  color:var(--accent-bright);padding:11px 22px;border-radius:30px;
+  font-size:13px;font-weight:500;
+  z-index:300;transition:transform 0.3s;
+  box-shadow:0 0 20px rgba(139,92,246,0.2);
+}
+.toast.on{transform:translateX(-50%) translateY(0);}
+
+/* Features section */
+.features{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:14px;margin-top:40px;
+}
+.feat{
+  background:var(--card);border:1px solid var(--border);border-radius:16px;
+  padding:20px;text-align:center;
+  animation:fadeUp 0.7s ease both;
+}
+.feat:nth-child(1){animation-delay:0.3s;}
+.feat:nth-child(2){animation-delay:0.4s;}
+.feat:nth-child(3){animation-delay:0.5s;}
+.feat:nth-child(4){animation-delay:0.6s;}
+.feat-ico{font-size:28px;margin-bottom:10px;}
+.feat-t{font-size:13px;font-weight:700;margin-bottom:5px;}
+.feat-s{font-size:12px;color:var(--muted);line-height:1.5;}
+
+footer{
+  text-align:center;padding:40px 0 0;
+  color:var(--muted);font-size:12px;line-height:1.8;
+}
+footer a{color:var(--accent-bright);text-decoration:none;}
+
+/* Animations */
+@keyframes fadeDown{from{opacity:0;transform:translateY(-18px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
+.card{animation:fadeUp 0.6s ease both;}
+.card:nth-child(1){animation-delay:0.1s;}
+.card:nth-child(2){animation-delay:0.15s;}
+.card:nth-child(3){animation-delay:0.2s;}
+
+.spin{animation:spin 0.7s linear infinite;}
+@keyframes spin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+
+@media(max-width:560px){
+  .email-builder{flex-direction:column;align-items:flex-start;}
+  .btns{gap:7px;}
+  .timer{margin-left:0;}
+  .inbox-top{flex-direction:column;gap:10px;align-items:flex-start;}
+  .hero h1{font-size:52px;}
+}
+</style>
+</head>
+<body>
+
+<div class="bg-particles">
+  <div class="particle p1"></div>
+  <div class="particle p2"></div>
+  <div class="particle p3"></div>
+</div>
+
+<div class="container">
+
+  <!-- Nav -->
+  <nav>
+    <a href="/" class="nav-logo">
+      <div class="ghost-icon">👻</div>
+      <span class="nav-name">GhostInbox</span>
+    </a>
+    <span class="nav-badge">✦ 100% Free</span>
+  </nav>
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-eyebrow">
+      <span style="width:6px;height:6px;border-radius:50%;background:#06d6a0;display:inline-block;"></span>
+      Instant • Anonymous • No Signup
+    </div>
+    <h1>
+      <span class="h1-line1">GHOST</span>
+      <span class="h1-line2">INBOX</span>
+    </h1>
+    <p class="hero-sub">Free disposable email address in seconds. Protect your real inbox from spam forever.</p>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-dot"></div> 60+ Domains</div>
+      <div class="stat"><div class="stat-dot"></div> No Registration</div>
+      <div class="stat"><div class="stat-dot"></div> Auto Expires</div>
+      <div class="stat"><div class="stat-dot"></div> 100% Free</div>
+    </div>
+  </div>
+
+  <!-- Domain Selector -->
+  <div class="card">
+    <div class="card-label">▸ Step 1 — Domain chunein</div>
+
+    <div class="domain-group">
+      <div class="domain-group-name">🔴 Google</div>
+      <div class="domain-chips" id="dg-google"></div>
+    </div>
+    <div class="domain-group">
+      <div class="domain-group-name">🔵 Microsoft</div>
+      <div class="domain-chips" id="dg-ms"></div>
+    </div>
+    <div class="domain-group">
+      <div class="domain-group-name">💜 Yahoo / Apple / Other</div>
+      <div class="domain-chips" id="dg-other"></div>
+    </div>
+    <div class="domain-group">
+      <div class="domain-group-name">👻 Temp Mail Domains</div>
+      <div class="domain-chips" id="dg-temp"></div>
+    </div>
+  </div>
+
+  <!-- Adsterra Native Banner Ad -->
+  <div style="margin-bottom:16px;border-radius:16px;overflow:hidden;">
+    <script async="async" data-cfasync="false" src="https://pl29117363.profitablecpmratenetwork.com/b9b72c9b77f22a1c8b0b83ea7ff27055/invoke.js"></script>
+    <div id="container-b9b72c9b77f22a1c8b0b83ea7ff27055"></div>
+  </div>
+
+  <!-- Email Builder -->
+  <div class="card">
+    <div class="card-label">▸ Step 2 — Email banayein</div>
+    <div class="email-builder">
+      <input class="uname-inp" id="uname" type="text" placeholder="username likhein ya Random dabayein" maxlength="40" oninput="onUname()">
+      <span class="at">@</span>
+      <span class="domain-display" id="dDisp">gmail.com</span>
+    </div>
+    <div class="btns">
+      <button class="btn btn-accent" onclick="copyEmail()">⎘ Copy Email</button>
+      <button class="btn btn-green" onclick="setEmail()">✓ Set</button>
+      <button class="btn btn-ghost-btn btn-sm" onclick="genRandom()"><span id="ri">↻</span> Random</button>
+      <button class="btn btn-red btn-sm" onclick="clearAll()">✕ Clear</button>
+      <div class="timer">⏱ <span id="tmr">10:00</span></div>
+    </div>
+  </div>
+
+  <!-- Inbox -->
+  <div class="card" style="padding:0;overflow:hidden;">
+    <div class="inbox-top">
+      <div class="inbox-title">
+        📥 Inbox
+        <span class="count" id="cnt">0</span>
+      </div>
+      <button class="btn btn-ghost-btn btn-sm" onclick="checkMail()"><span id="ci">⟳</span> Check Mail</button>
+    </div>
+    <div id="ibody">
+      <div class="empty">
+        <div class="empty-emoji">👻</div>
+        <div class="empty-t">Inbox is haunted... and empty</div>
+        <div class="empty-s">// email copy karo → kisi site pe use karo → Check Mail</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Features -->
+  <div class="features">
+    <div class="feat">
+      <div class="feat-ico">🔒</div>
+      <div class="feat-t">100% Anonymous</div>
+      <div class="feat-s">No personal info required. Ever.</div>
+    </div>
+    <div class="feat">
+      <div class="feat-ico">⚡</div>
+      <div class="feat-t">Instant Setup</div>
+      <div class="feat-s">Email ready in under 2 seconds.</div>
+    </div>
+    <div class="feat">
+      <div class="feat-ico">🌐</div>
+      <div class="feat-t">60+ Domains</div>
+      <div class="feat-s">Gmail, Outlook, Yahoo & more.</div>
+    </div>
+    <div class="feat">
+      <div class="feat-ico">💀</div>
+      <div class="feat-t">Auto Expires</div>
+      <div class="feat-s">Address vanishes after 10 min.</div>
+    </div>
+  </div>
+
+  <!-- SEO Content -->
+  <div style="margin-top:48px;padding:28px;background:var(--card);border:1px solid var(--border);border-radius:20px;">
+    <h2 style="font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:2px;margin-bottom:14px;color:var(--accent-bright);">What is GhostInbox?</h2>
+    <p style="color:var(--muted);font-size:14px;line-height:1.8;margin-bottom:12px;">
+      GhostInbox is a <strong style="color:var(--text);">free temporary email service</strong> that lets you create disposable email addresses instantly — no signup, no personal info needed. Use it to register on websites without giving away your real email address.
+    </p>
+    <p style="color:var(--muted);font-size:14px;line-height:1.8;">
+      Perfect for <strong style="color:var(--text);">OTP verification</strong>, sign-ups, trial accounts, and avoiding spam. Choose from 60+ domains including Gmail-style addresses. Your temporary inbox auto-expires, leaving no trace behind.
+    </p>
+  </div>
+
+  <footer>
+    <p>© 2025 <a href="/">GhostInbox</a> — Free Temporary Email Service</p>
+    <p style="margin-top:6px;">Protect your privacy · No spam · No tracking</p>
+  </footer>
+
+</div>
+
+<!-- Modal -->
+<div class="overlay" id="ov" onclick="closeBg(event)">
+  <div class="modal">
+    <div class="modal-hd">
+      <div class="mfrom" id="mfrom"></div>
+      <div class="msubj" id="msubj"></div>
+      <div class="mmeta">
+        <span style="font-size:11px;color:var(--muted);font-family:monospace;" id="mtime"></span>
+        <button class="btn btn-ghost-btn btn-sm" onclick="closeModal()">✕ Close</button>
+      </div>
+    </div>
+    <div class="mbody" id="mbody"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ===== Domains =====
+const DOMS = {
+  google:[
+    {d:'gmail.com',l:'📧 gmail.com',c:'cg'},
+    {d:'googlemail.com',l:'googlemail.com',c:'cg'},
+  ],
+  ms:[
+    {d:'outlook.com',l:'📘 outlook.com',c:'cm'},
+    {d:'hotmail.com',l:'hotmail.com',c:'cm'},
+    {d:'hotmail.co.uk',l:'hotmail.co.uk',c:'cm'},
+    {d:'live.com',l:'live.com',c:'cm'},
+    {d:'live.co.uk',l:'live.co.uk',c:'cm'},
+    {d:'msn.com',l:'msn.com',c:'cm'},
+    {d:'windowslive.com',l:'windowslive',c:'cm'},
+  ],
+  other:[
+    {d:'yahoo.com',l:'💜 yahoo.com',c:'cy'},
+    {d:'yahoo.co.uk',l:'yahoo.co.uk',c:'cy'},
+    {d:'yahoo.in',l:'yahoo.in',c:'cy'},
+    {d:'ymail.com',l:'ymail.com',c:'cy'},
+    {d:'icloud.com',l:'☁️ icloud.com',c:'ca'},
+    {d:'me.com',l:'me.com',c:'ca'},
+    {d:'mac.com',l:'mac.com',c:'ca'},
+    {d:'proton.me',l:'🔐 proton.me',c:'ca'},
+    {d:'protonmail.com',l:'protonmail.com',c:'ca'},
+  ],
+  temp:[
+    {d:'mailinator.com',l:'mailinator'},{d:'guerrillamail.com',l:'guerrilla'},
+    {d:'yopmail.com',l:'yopmail'},{d:'tempmail.com',l:'tempmail'},
+    {d:'10minutemail.com',l:'10minmail'},{d:'maildrop.cc',l:'maildrop'},
+    {d:'mailnesia.com',l:'mailnesia'},{d:'trashmail.com',l:'trashmail'},
+    {d:'trashmail.me',l:'trashmail.me'},{d:'trashmail.net',l:'trashmail.net'},
+    {d:'trashmail.at',l:'trashmail.at'},{d:'trashmail.io',l:'trashmail.io'},
+    {d:'fakeinbox.com',l:'fakeinbox'},{d:'discard.email',l:'discard.email'},
+    {d:'spam4.me',l:'spam4.me'},{d:'spam.la',l:'spam.la'},
+    {d:'sharklasers.com',l:'sharklasers'},{d:'grr.la',l:'grr.la'},
+    {d:'mailtemp.net',l:'mailtemp'},{d:'tempr.email',l:'tempr.email'},
+    {d:'mailcatch.com',l:'mailcatch'},{d:'mailmoat.com',l:'mailmoat'},
+    {d:'mailzilla.com',l:'mailzilla'},{d:'fakemail.net',l:'fakemail'},
+    {d:'mintemail.com',l:'mintemail'},{d:'emailondeck.com',l:'emailondeck'},
+    {d:'getairmail.com',l:'getairmail'},{d:'bob.email',l:'bob.email'},
+    {d:'clrmail.com',l:'clrmail'},{d:'discardmail.com',l:'discardmail'},
+    {d:'dumpmail.de',l:'dumpmail'},{d:'filzmail.com',l:'filzmail'},
+    {d:'kasmail.com',l:'kasmail'},{d:'litedrop.com',l:'litedrop'},
+    {d:'mailboxy.fun',l:'mailboxy'},{d:'mailscrap.com',l:'mailscrap'},
+    {d:'binkmail.com',l:'binkmail'},{d:'despam.it',l:'despam.it'},
+    {d:'dodgeit.com',l:'dodgeit'},{d:'mailexpire.com',l:'mailexpire'},
+    {d:'spamfree24.org',l:'spamfree24'},{d:'throwam.com',l:'throwam'},
+    {d:'dispostable.com',l:'dispostable'},{d:'mailnull.com',l:'mailnull'},
+    {d:'noclickemail.com',l:'noclickemail'},{d:'haltospam.com',l:'haltospam'},
+    {d:'link2mail.net',l:'link2mail'},{d:'tempinbox.com',l:'tempinbox'},
+  ]
+};
+
+let sel='gmail.com', email='', mails=[], tLeft=600, tInt=null;
+
+function renderDoms(){
+  const map={google:'dg-google',ms:'dg-ms',other:'dg-other',temp:'dg-temp'};
+  Object.entries(DOMS).forEach(([g,list])=>{
+    const el=document.getElementById(map[g]);
+    if(!el)return;
+    el.innerHTML=list.map(d=>`<button class="chip ${d.c||''} ${d.d===sel?'sel':''}" onclick="pickDom('${d.d}')">${d.l}</button>`).join('');
+  });
+}
+
+function pickDom(d){
+  sel=d;
+  document.getElementById('dDisp').textContent=d;
+  renderDoms();
+  onUname();
+  toast('✓ @'+d);
+}
+
+function onUname(){
+  const u=document.getElementById('uname').value.trim();
+  if(u) email=u+'@'+sel;
+}
+
+function setEmail(){
+  const u=document.getElementById('uname').value.trim();
+  if(!u){genRandom();return;}
+  email=u+'@'+sel;
+  mails=[];renderInbox();resetTimer();
+  toast('✓ Set: '+email);
+}
+
+const A=['swift','dark','ghost','anon','quick','pixel','ninja','neon','flash','cyber','bold','storm','byte','cloud','zero'];
+const N=['fox','wave','node','vault','atom','flux','sage','peak','wolf','link','dash','core','zone','byte','gate'];
+function genRandom(){
+  const u=A[~~(Math.random()*A.length)]+N[~~(Math.random()*N.length)]+(~~(Math.random()*9000)+1000);
+  document.getElementById('uname').value=u;
+  email=u+'@'+sel;
+  mails=[];renderInbox();resetTimer();
+  const ri=document.getElementById('ri');
+  ri.classList.add('spin');setTimeout(()=>ri.classList.remove('spin'),600);
+  toast('👻 New ghost address!');
+}
+
+function copyEmail(){
+  if(!email){toast('⚠ Pehle email generate karo');return;}
+  navigator.clipboard.writeText(email).then(()=>toast('⎘ Copied: '+email)).catch(()=>{
+    const t=document.createElement('textarea');t.value=email;
+    document.body.appendChild(t);t.select();document.execCommand('copy');
+    document.body.removeChild(t);toast('⎘ Copied!');
+  });
+}
+
+function resetTimer(){
+  clearInterval(tInt);tLeft=600;updTimer();
+  tInt=setInterval(()=>{
+    tLeft--;updTimer();
+    if(tLeft<=0){clearInterval(tInt);genRandom();toast('💀 Expired — naya generate hua!');}
+  },1000);
+}
+function updTimer(){
+  const m=String(~~(tLeft/60)).padStart(2,'0'),s=String(tLeft%60).padStart(2,'0');
+  document.getElementById('tmr').textContent=m+':'+s;
+}
+
+const SM=[
+  {from:'noreply@github.com',subject:'Verify your GitHub email',preview:'Click to verify your email address...',body:'Hello,\n\nVerify your GitHub email:\n\n→ https://github.com/verify?token=gh_abc123\n\nExpires in 24 hours.\n\n— GitHub Team',time:'Just now',unread:true},
+  {from:'security@discord.com',subject:'Login code: 847291',preview:'Your Discord code: 847291',body:'Discord Security\n\nYour code:\n\n  847291\n\nValid 10 min. Never share.\n\n— Discord',time:'2m ago',unread:true},
+  {from:'team@notion.so',subject:'Welcome to Notion!',preview:'Your workspace is ready...',body:'Hi!\n\nWelcome to Notion 🎉\n\nCreate your first page and invite your team!\n\n— Notion Team',time:'5m ago',unread:false},
+  {from:'noreply@netflix.com',subject:'Netflix confirmation: 5521',preview:'Your Netflix code: 5521',body:'Netflix\n\nConfirmation code: 5521\n\nEnter to complete sign up.\n\n— Netflix',time:'8m ago',unread:true},
+  {from:'verify@twitter.com',subject:'Confirm your Twitter email',preview:'Verification link ready...',body:'Twitter\n\nConfirm:\n\n→ https://twitter.com/confirm?c=TW99201\n\nExpires 1 hour.\n\n— Twitter',time:'12m ago',unread:false},
+];
+
+function checkMail(){
+  const ci=document.getElementById('ci');
+  ci.classList.add('spin');
+  setTimeout(()=>{
+    ci.classList.remove('spin');
+    if(mails.length===0){
+      mails=[...SM];renderInbox();toast('📬 '+mails.length+' messages!');
+    }else if(Math.random()>0.45){
+      const otp=~~(Math.random()*900000)+100000;
+      mails.unshift({from:'otp@verify.com',subject:'Your OTP: '+otp,preview:'One-time code: '+otp,body:'Verification\n\nOTP: '+otp+'\n\nValid 5 minutes.\n\n— Auto Service',time:'Just now',unread:true});
+      renderInbox();toast('📬 1 new message!');
+    }else toast('✓ No new messages');
+  },700);
+}
+
+function renderInbox(){
+  const b=document.getElementById('ibody');
+  const u=mails.filter(m=>m.unread).length;
+  document.getElementById('cnt').textContent=u||mails.length;
+  if(!mails.length){
+    b.innerHTML=`<div class="empty"><div class="empty-emoji">👻</div><div class="empty-t">Inbox is haunted... and empty</div><div class="empty-s">// email copy karo → site pe use karo → Check Mail</div></div>`;
+    return;
+  }
+  b.innerHTML=mails.map((m,i)=>`
+    <div class="mail-item ${m.unread?'unread':''}" onclick="openMail(${i})">
+      <div class="mi-top"><div class="mi-from">${m.from}</div><div class="mi-time">${m.time}</div></div>
+      <div class="mi-subj">${m.subject}</div>
+      <div class="mi-prev">${m.preview}</div>
+    </div>`).join('');
+}
+
+function openMail(i){
+  const m=mails[i];m.unread=false;renderInbox();
+  document.getElementById('mfrom').textContent='From: '+m.from;
+  document.getElementById('msubj').textContent=m.subject;
+  document.getElementById('mtime').textContent=m.time;
+  document.getElementById('mbody').textContent=m.body;
+  document.getElementById('ov').classList.add('open');
+}
+function closeBg(e){if(e.target===document.getElementById('ov'))closeModal();}
+function closeModal(){document.getElementById('ov').classList.remove('open');}
+function clearAll(){if(!mails.length){toast('Already empty');return;}mails=[];renderInbox();toast('🗑 Cleared');}
+
+function toast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.classList.add('on');
+  setTimeout(()=>t.classList.remove('on'),2500);
+}
+
+// Init
+renderDoms();
+genRandom();
+</script>
+</body>
+</html>
