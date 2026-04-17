@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GhostInbox — Free Temporary Email</title>
+<meta name="description" content="Free disposable temporary email address. No signup. 60+ domains. Urdu, Hindi, English support.">
+<meta name="theme-color" content="#080810">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon.png">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://usmanus1.github.io/ghostinbox/">
+<script src="https://pl29122283.profitablecpmratenetwork.com/4b/cb/15/4bcb15639085d717fd300674d29b6379.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --bg:#080810;--card:#13131f;--border:#1e1e30;
+  --accent:#8b5cf6;--green:#06d6a0;--text:#e2e2f0;
+  --muted:#5a5a7a;--danger:#f43f5e;--surface:#0e0e1a;
+  --shadow:0 2px 12px rgba(0,0,0,0.3);
+}
+.light{
+  --bg:#f4f4f8;--card:#ffffff;--border:#e0e0ec;
+  --accent:#7c3aed;--green:#059669;--text:#1a1a2e;
+  --muted:#8888aa;--danger:#e11d48;--surface:#eeeef6;
+  --shadow:0 2px 12px rgba(0,0,0,0.08);
+}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min-height:100vh;transition:background 0.3s,color 0.3s;}
+.wrap{max-width:780px;margin:0 auto;padding:20px 16px 60px;}
+
+/* TOP BAR */
+.topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;flex-wrap:wrap;gap:10px;}
+.logo{display:flex;align-items:center;gap:8px;text-decoration:none;}
+.logo-ico{width:36px;height:36px;background:linear-gradient(135deg,#8b5cf6,#06d6a0);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:18px;}
+.logo-name{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;background:linear-gradient(135deg,#a78bfa,#06d6a0);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.top-controls{display:flex;align-items:center;gap:8px;}
+.ctrl-btn{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:6px 12px;font-size:12px;font-weight:600;cursor:pointer;color:var(--text);transition:all 0.15s;}
+.ctrl-btn:hover{border-color:var(--accent);color:var(--accent);}
+.ctrl-btn.active{background:var(--accent);color:#fff;border-color:var(--accent);}
+
+/* HERO */
+.hero{text-align:center;margin-bottom:24px;}
+.hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,10vw,80px);line-height:0.9;letter-spacing:3px;margin-bottom:10px;}
+.h1a{display:block;background:linear-gradient(135deg,var(--text),#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.h1b{display:block;background:linear-gradient(135deg,#06d6a0,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero p{color:var(--muted);font-size:14px;margin-bottom:14px;}
+.hero-stats{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+.hstat{font-size:11px;color:var(--muted);display:flex;align-items:center;gap:5px;}
+.hstat::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--green);display:inline-block;}
+
+/* CARD */
+.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px;margin-bottom:12px;box-shadow:var(--shadow);}
+.clabel{font-size:10px;font-weight:700;color:var(--accent);letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;opacity:0.8;}
+
+/* TABS */
+.tabs{display:flex;gap:6px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:5px;margin-bottom:12px;}
+.tab{flex:1;padding:9px;border-radius:9px;border:none;background:transparent;color:var(--muted);font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;cursor:pointer;transition:all 0.15s;text-align:center;}
+.tab.on{background:var(--accent);color:#fff;}
+.tab:hover:not(.on){color:var(--text);}
+
+/* TIMER SELECTOR */
+.timer-row{display:flex;align-items:center;gap:8px;margin-bottom:12px;flex-wrap:wrap;}
+.timer-label{font-size:12px;color:var(--muted);font-weight:600;}
+.timer-opts{display:flex;gap:5px;}
+.topt{padding:5px 12px;border-radius:20px;border:1px solid var(--border);font-size:11px;font-weight:600;cursor:pointer;color:var(--muted);background:transparent;transition:all 0.15s;}
+.topt:hover{border-color:var(--accent);color:var(--accent);}
+.topt.on{background:var(--accent);color:#fff;border-color:var(--accent);}
+.timer-display{margin-left:auto;background:rgba(6,214,160,0.08);border:1px solid rgba(6,214,160,0.2);border-radius:20px;padding:5px 14px;font-size:13px;font-weight:700;color:var(--green);font-family:monospace;}
+
+/* DOMAIN */
+.dgroup{margin-bottom:10px;}
+.dgname{font-size:10px;font-weight:600;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:5px;}
+.chips{display:flex;flex-wrap:wrap;gap:5px;}
+.chip{padding:4px 10px;border-radius:20px;border:1px solid var(--border);font-size:11px;font-weight:500;color:var(--muted);cursor:pointer;transition:all 0.15s;background:transparent;}
+.chip:hover,.chip.on{border-color:var(--accent);color:var(--accent);background:rgba(139,92,246,0.08);}
+.chip.on{font-weight:700;}
+.cg{border-color:rgba(234,67,53,0.3);color:#f87171;}.cg:hover,.cg.on{background:rgba(234,67,53,0.08);border-color:#f87171;color:#f87171;}
+.cm{border-color:rgba(59,130,246,0.3);color:#60a5fa;}.cm:hover,.cm.on{background:rgba(59,130,246,0.08);border-color:#60a5fa;color:#60a5fa;}
+.cy{border-color:rgba(168,85,247,0.3);color:#c084fc;}.cy:hover,.cy.on{background:rgba(168,85,247,0.08);border-color:#c084fc;color:#c084fc;}
+.ca{border-color:rgba(156,163,175,0.2);color:#9ca3af;}.ca:hover,.ca.on{background:rgba(156,163,175,0.08);border-color:#9ca3af;}
+
+/* EMAIL BOX */
+.ebox{display:flex;align-items:center;gap:6px;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:11px 14px;margin-bottom:10px;flex-wrap:wrap;transition:border-color 0.2s;}
+.ebox:focus-within{border-color:var(--accent);}
+.uinp{flex:1;min-width:80px;background:transparent;border:none;outline:none;font-size:15px;color:var(--green);font-weight:600;font-family:'DM Sans',sans-serif;}
+.uinp::placeholder{color:var(--muted);font-weight:400;font-size:13px;}
+.at{font-size:16px;color:var(--muted);font-weight:700;}
+.dshow{font-size:13px;color:var(--accent);font-weight:600;font-family:monospace;}
+
+/* BTNS */
+.btns{display:flex;gap:6px;flex-wrap:wrap;align-items:center;}
+.btn{display:inline-flex;align-items:center;gap:5px;padding:8px 15px;border-radius:9px;font-size:12px;font-weight:600;cursor:pointer;border:none;transition:all 0.15s;white-space:nowrap;font-family:'DM Sans',sans-serif;}
+.bp{background:var(--accent);color:#fff;}
+.bp:hover{opacity:0.85;transform:translateY(-1px);}
+.bg2{background:transparent;color:var(--green);border:1px solid rgba(6,214,160,0.3);}
+.bg2:hover{background:rgba(6,214,160,0.08);}
+.bgh{background:transparent;color:var(--text);border:1px solid var(--border);}
+.bgh:hover{border-color:var(--accent);color:var(--accent);}
+.br{background:transparent;color:var(--danger);border:1px solid rgba(244,63,94,0.2);}
+.br:hover{background:rgba(244,63,94,0.06);}
+.bsm{padding:6px 12px;font-size:11px;border-radius:8px;}
+
+/* INSTALL BANNER */
+.install-banner{background:linear-gradient(135deg,rgba(139,92,246,0.12),rgba(6,214,160,0.08));border:1px solid rgba(139,92,246,0.25);border-radius:14px;padding:14px 18px;margin-bottom:12px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;}
+.install-text{font-size:13px;font-weight:600;}
+.install-sub{font-size:11px;color:var(--muted);margin-top:2px;}
+
+/* INBOX */
+.ihead{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-bottom:1px solid var(--border);}
+.ititle{font-size:14px;font-weight:700;display:flex;align-items:center;gap:8px;}
+.cnt{background:var(--accent);color:#fff;font-size:10px;font-weight:700;padding:2px 7px;border-radius:20px;}
+.empty{padding:40px 20px;text-align:center;}
+.eico{font-size:32px;margin-bottom:8px;opacity:0.3;}
+.et{font-size:13px;font-weight:600;opacity:0.4;margin-bottom:5px;}
+.es{font-size:11px;color:var(--muted);}
+.mitem{padding:13px 18px;border-bottom:1px solid var(--border);cursor:pointer;transition:background 0.1s;position:relative;}
+.mitem:last-child{border-bottom:none;}
+.mitem:hover{background:rgba(139,92,246,0.04);}
+.mitem.unread::before{content:'';position:absolute;left:7px;top:50%;transform:translateY(-50%);width:4px;height:4px;border-radius:50%;background:var(--green);}
+.mtop{display:flex;justify-content:space-between;margin-bottom:3px;}
+.mfrom{font-weight:700;font-size:12px;}
+.mtime{font-size:10px;color:var(--muted);font-family:monospace;}
+.msubj{font-size:12px;margin-bottom:2px;opacity:0.75;}
+.mprev{font-size:11px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+
+/* HISTORY */
+.hist-item{padding:11px 18px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;cursor:pointer;}
+.hist-item:last-child{border-bottom:none;}
+.hist-item:hover{background:rgba(139,92,246,0.03);}
+.hist-email{font-size:13px;font-weight:600;color:var(--green);font-family:monospace;}
+.hist-time{font-size:10px;color:var(--muted);}
+
+/* OTP */
+.otp-big{font-family:'Bebas Neue',sans-serif;font-size:52px;letter-spacing:10px;color:var(--green);text-align:center;padding:20px;background:rgba(6,214,160,0.05);border:1px solid rgba(6,214,160,0.15);border-radius:12px;margin:10px 0;}
+
+/* LINK */
+.link-box{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:11px 14px;margin-bottom:10px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.link-text{flex:1;font-family:monospace;font-size:12px;color:var(--green);word-break:break-all;}
+
+/* MODAL */
+.ov{position:fixed;inset:0;background:rgba(0,0,0,0.8);backdrop-filter:blur(10px);z-index:200;display:flex;align-items:center;justify-content:center;padding:16px;opacity:0;pointer-events:none;transition:opacity 0.2s;}
+.ov.open{opacity:1;pointer-events:all;}
+.modal{background:var(--card);border:1px solid var(--border);border-radius:16px;width:100%;max-width:560px;max-height:85vh;overflow-y:auto;transform:translateY(16px);transition:transform 0.2s;}
+.ov.open .modal{transform:translateY(0);}
+.mhd{padding:16px 20px;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--card);}
+.mdfrom{font-size:11px;color:var(--muted);font-family:monospace;margin-bottom:4px;}
+.mdsubj{font-size:17px;font-weight:700;margin-bottom:12px;}
+.mdmeta{display:flex;justify-content:space-between;align-items:center;}
+.mdbody{padding:16px 20px;font-size:13px;line-height:1.9;font-family:monospace;white-space:pre-wrap;word-break:break-word;opacity:0.8;}
+
+/* AD SLOT */
+.adslot{background:rgba(139,92,246,0.03);border:1px dashed rgba(139,92,246,0.15);border-radius:12px;padding:8px;margin-bottom:12px;text-align:center;min-height:50px;display:flex;align-items:center;justify-content:center;}
+
+/* SMARTLINK */
+.smart-section{background:linear-gradient(135deg,rgba(139,92,246,0.1),rgba(6,214,160,0.06));border:1px solid rgba(139,92,246,0.2);border-radius:16px;padding:18px;text-align:center;margin-top:14px;}
+
+/* TOAST */
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(60px);background:var(--card);border:1px solid var(--accent);color:var(--accent);padding:9px 18px;border-radius:30px;font-size:12px;font-weight:600;z-index:300;transition:transform 0.25s;box-shadow:var(--shadow);}
+.toast.on{transform:translateX(-50%) translateY(0);}
+
+/* FEATURES */
+.feats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px;margin-top:20px;}
+.feat{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px;text-align:center;}
+.fico{font-size:22px;margin-bottom:5px;}
+.ft{font-size:11px;font-weight:700;margin-bottom:2px;}
+.fs{font-size:10px;color:var(--muted);}
+
+footer{text-align:center;padding:24px 0 0;color:var(--muted);font-size:11px;line-height:1.8;}
+footer a{color:var(--accent);text-decoration:none;}
+
+.spin{animation:spin 0.6s linear infinite;}
+@keyframes spin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+.card,.tabs,.install-banner{animation:fadeUp 0.4s ease both;}
+
+@media(max-width:480px){
+  .ebox{flex-direction:column;align-items:flex-start;}
+  .timer-display{margin-left:0;}
+  .ihead{flex-direction:column;gap:8px;align-items:flex-start;}
+  .timer-row{flex-direction:column;align-items:flex-start;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <a href="/" class="logo">
+    <div class="logo-ico">👻</div>
+    <span class="logo-name">GhostInbox</span>
+  </a>
+  <div class="top-controls">
+    <!-- Language -->
+    <button class="ctrl-btn active" onclick="setLang('en',this)" id="ln-en">EN</button>
+    <button class="ctrl-btn" onclick="setLang('ur',this)" id="ln-ur">اردو</button>
+    <button class="ctrl-btn" onclick="setLang('hi',this)" id="ln-hi">हिंदी</button>
+    <!-- Theme -->
+    <button class="ctrl-btn" onclick="toggleTheme()" id="themeBtn">☀️</button>
+    <!-- Install -->
+    <button class="ctrl-btn" onclick="installApp()" id="installBtn" style="display:none;">📲 Install</button>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <h1><span class="h1a">GHOST</span><span class="h1b">INBOX</span></h1>
+  <p id="heroSub">Free disposable email • Temp links • OTP tools • No signup</p>
+  <div class="hero-stats">
+    <div class="hstat" id="stat1">60+ Domains</div>
+    <div class="hstat" id="stat2">Instant Setup</div>
+    <div class="hstat" id="stat3">100% Free</div>
+    <div class="hstat" id="stat4">Auto Expires</div>
+  </div>
+</div>
+
+<!-- INSTALL BANNER -->
+<div class="install-banner" id="installBanner" style="display:none;">
+  <div>
+    <div class="install-text" id="installTitle">📱 Install GhostInbox App</div>
+    <div class="install-sub" id="installSub">Phone pe app ki tarah use karo — offline bhi!</div>
+  </div>
+  <button class="btn bp bsm" onclick="installApp()" id="installBannerBtn">Install</button>
+</div>
+
+<!-- TABS -->
+<div class="tabs">
+  <button class="tab on" onclick="switchTab('email',this)" id="tab-btn-email">📧 <span id="tl-email">Email</span></button>
+  <button class="tab" onclick="switchTab('link',this)" id="tab-btn-link">🔗 <span id="tl-link">Link</span></button>
+  <button class="tab" onclick="switchTab('code',this)" id="tab-btn-code">🔢 <span id="tl-code">OTP</span></button>
+  <button class="tab" onclick="switchTab('history',this)" id="tab-btn-history">📋 <span id="tl-history">History</span></button>
+</div>
+
+<!-- ===== EMAIL TAB ===== -->
+<div id="tab-email">
+
+  <!-- Timer -->
+  <div class="card" style="padding:14px 18px;">
+    <div class="timer-row">
+      <span class="timer-label" id="tl-timer">⏱ Timer:</span>
+      <div class="timer-opts">
+        <button class="topt" onclick="setTimer(5,this)">5m</button>
+        <button class="topt on" onclick="setTimer(10,this)">10m</button>
+        <button class="topt" onclick="setTimer(30,this)">30m</button>
+        <button class="topt" onclick="setTimer(60,this)">60m</button>
+      </div>
+      <div class="timer-display" id="tmr">10:00</div>
+    </div>
+  </div>
+
+  <!-- Domain -->
+  <div class="card">
+    <div class="clabel" id="lbl-domain">▸ Domain</div>
+    <div class="dgroup"><div class="dgname">🔴 Google</div><div class="chips" id="dg1"></div></div>
+    <div class="dgroup"><div class="dgname">🔵 Microsoft</div><div class="chips" id="dg2"></div></div>
+    <div class="dgroup"><div class="dgname">💜 Yahoo / Apple</div><div class="chips" id="dg3"></div></div>
+    <div class="dgroup"><div class="dgname">👻 Temp Mail</div><div class="chips" id="dg4"></div></div>
+  </div>
+
+  <!-- Ad -->
+  <div class="adslot">
+    <script async="async" data-cfasync="false" src="https://pl29122284.profitablecpmratenetwork.com/f280962c247b675ac74a03c74f46aca2/invoke.js"></script>
+    <div id="container-f280962c247b675ac74a03c74f46aca2"></div>
+  </div>
+
+  <!-- Email Builder -->
+  <div class="card">
+    <div class="clabel" id="lbl-email">▸ Email banayein</div>
+    <div class="ebox">
+      <input class="uinp" id="uinp" type="text" maxlength="40" oninput="onType()">
+      <span class="at">@</span>
+      <span class="dshow" id="dshow">gmail.com</span>
+    </div>
+    <div class="btns">
+      <button class="btn bp" onclick="copyMail()" id="btn-copy">⎘ Copy</button>
+      <button class="btn bg2 bsm" onclick="setMail()" id="btn-set">✓ Set</button>
+      <button class="btn bgh bsm" onclick="randMail()"><span id="ri">↻</span> <span id="btn-rand">Random</span></button>
+      <button class="btn br bsm" onclick="clearInbox()" id="btn-clear">🗑</button>
+    </div>
+  </div>
+
+  <!-- Inbox -->
+  <div class="card" style="padding:0;overflow:hidden;">
+    <div class="ihead">
+      <div class="ititle">📥 <span id="lbl-inbox">Inbox</span> <span class="cnt" id="cnt">0</span></div>
+      <button class="btn bgh bsm" onclick="checkMail()"><span id="ci">⟳</span> <span id="btn-check">Check Mail</span></button>
+    </div>
+    <div id="ibody">
+      <div class="empty"><div class="eico">👻</div><div class="et" id="inbox-empty-t">Inbox empty</div><div class="es" id="inbox-empty-s">Email copy → use → Check Mail</div></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ===== LINK TAB ===== -->
+<div id="tab-link" style="display:none;">
+  <div class="card">
+    <div class="clabel" id="lbl-templink">▸ Temp Link Generator</div>
+    <p style="color:var(--muted);font-size:12px;margin-bottom:12px;" id="link-desc">URL paste karo — temp link milega!</p>
+    <div class="ebox" style="margin-bottom:10px;">
+      <input class="uinp" id="linkInp" type="text" placeholder="https://example.com" style="color:var(--accent);">
+    </div>
+    <div class="btns" style="margin-bottom:12px;">
+      <button class="btn bp" onclick="genLink()" id="btn-genlink">🔗 Generate</button>
+      <button class="btn bgh bsm" onclick="randLink()">↻ Demo</button>
+    </div>
+    <div id="linkResult" style="display:none;">
+      <div class="link-box">
+        <div class="link-text" id="linkOut"></div>
+        <button class="btn bg2 bsm" onclick="copyLink()">⎘</button>
+      </div>
+      <div style="font-size:11px;color:var(--muted);margin-top:4px;">⏱ <span id="linkExp" style="color:var(--danger);"></span></div>
+    </div>
+  </div>
+  <div class="card" style="padding:0;overflow:hidden;">
+    <div class="ihead"><div class="ititle">🔗 <span id="lbl-linkhist">Link History</span></div></div>
+    <div id="linkHistory"><div class="empty" style="padding:28px;"><div class="eico" style="font-size:26px;">🔗</div><div class="et" id="link-empty">Koi link nahi</div></div></div>
+  </div>
+</div>
+
+<!-- ===== OTP TAB ===== -->
+<div id="tab-code" style="display:none;">
+  <div class="card">
+    <div class="clabel" id="lbl-otp">▸ OTP Generator</div>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px;">
+      <button class="btn bp" onclick="genOTP(4)" id="btn-4d">4 Digit</button>
+      <button class="btn bp" onclick="genOTP(6)" id="btn-6d">6 Digit</button>
+      <button class="btn bp" onclick="genOTP(8)" id="btn-8d">8 Digit</button>
+      <button class="btn bg2" onclick="genCode()" id="btn-code">🔑 Code</button>
+      <button class="btn bgh bsm" onclick="genPIN()">🔢 PIN</button>
+    </div>
+    <div id="otpResult" style="display:none;">
+      <div class="otp-big" id="otpNum"></div>
+      <div class="btns" style="justify-content:center;margin-top:10px;">
+        <button class="btn bp" onclick="copyOTP()" id="btn-copyotp">⎘ Copy</button>
+        <button class="btn bgh bsm" onclick="regenOTP()">↻ New</button>
+      </div>
+    </div>
+  </div>
+  <div class="card" style="padding:0;overflow:hidden;">
+    <div class="ihead"><div class="ititle">📋 <span id="lbl-codehist">Recent Codes</span></div></div>
+    <div id="codeHistory"><div class="empty" style="padding:28px;"><div class="eico" style="font-size:26px;">🔢</div><div class="et" id="code-empty">Koi code nahi</div></div></div>
+  </div>
+</div>
+
+<!-- ===== HISTORY TAB ===== -->
+<div id="tab-history" style="display:none;">
+  <div class="card" style="padding:0;overflow:hidden;">
+    <div class="ihead">
+      <div class="ititle">📋 <span id="lbl-emailhist">Email History</span></div>
+      <button class="btn br bsm" onclick="clearHistory()" id="btn-clearhist">🗑 Clear</button>
+    </div>
+    <div id="emailHistory">
+      <div class="empty"><div class="eico">📋</div><div class="et" id="hist-empty">Koi history nahi</div><div class="es" id="hist-sub">Emails yahan save hongi</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<div class="feats">
+  <div class="feat"><div class="fico">🔒</div><div class="ft" id="f1t">Anonymous</div><div class="fs" id="f1s">No info needed</div></div>
+  <div class="feat"><div class="fico">⚡</div><div class="ft" id="f2t">Instant</div><div class="fs" id="f2s">2 seconds</div></div>
+  <div class="feat"><div class="fico">🌐</div><div class="ft" id="f3t">60+ Domains</div><div class="fs" id="f3s">Gmail & more</div></div>
+  <div class="feat"><div class="fico">📱</div><div class="ft" id="f4t">Install App</div><div class="fs" id="f4s">Works offline</div></div>
+</div>
+
+<!-- SEO -->
+<div class="card" style="margin-top:14px;">
+  <h2 style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;margin-bottom:8px;color:var(--accent);" id="seo-title">What is GhostInbox?</h2>
+  <p style="color:var(--muted);font-size:13px;line-height:1.8;" id="seo-text">Free temporary email service. No signup, instant, 60+ domains. OTP, spam protection, temp links. 👻</p>
+</div>
+
+<!-- SMARTLINK -->
+<div class="smart-section">
+  <div style="font-size:10px;font-weight:700;color:var(--accent);letter-spacing:2px;text-transform:uppercase;margin-bottom:7px;" id="smart-label">⚡ Recommended</div>
+  <h3 style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;margin-bottom:5px;" id="smart-title">Stay Anonymous Online</h3>
+  <p style="color:var(--muted);font-size:12px;margin-bottom:12px;" id="smart-sub">Best privacy tools for online protection</p>
+  <a href="https://www.profitablecpmratenetwork.com/rjjp8k095?key=fa711711cbcca7b67526a519433e80c8" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:var(--accent);color:#fff;padding:9px 20px;border-radius:10px;text-decoration:none;font-weight:700;font-size:12px;margin:3px;">🔒 Privacy Tools</a>
+  <a href="https://www.profitablecpmratenetwork.com/rjjp8k095?key=fa711711cbcca7b67526a519433e80c8" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:transparent;color:var(--green);border:1px solid rgba(6,214,160,0.3);padding:9px 20px;border-radius:10px;text-decoration:none;font-weight:700;font-size:12px;margin:3px;">🛡️ Protect Now</a>
+</div>
+
+<footer>
+  <p>© 2025 <a href="/">GhostInbox</a> — Free Temporary Email & Tools</p>
+  <p style="margin-top:3px;">Privacy Protected · No Tracking · Always Free</p>
+</footer>
+
+</div>
+
+<!-- MODAL -->
+<div class="ov" id="ov" onclick="closeBg(event)">
+  <div class="modal">
+    <div class="mhd">
+      <div class="mdfrom" id="mdfrom"></div>
+      <div class="mdsubj" id="mdsubj"></div>
+      <div class="mdmeta">
+        <span style="font-size:10px;color:var(--muted);font-family:monospace;" id="mdtime"></span>
+        <button class="btn bgh bsm" onclick="closeModal()">✕</button>
+      </div>
+    </div>
+    <div class="mdbody" id="mdbody"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ===== TRANSLATIONS =====
+const T = {
+  en: {
+    heroSub:'Free disposable email • Temp links • OTP tools • No signup',
+    stat1:'60+ Domains',stat2:'Instant Setup',stat3:'100% Free',stat4:'Auto Expires',
+    tlEmail:'Email',tlLink:'Link',tlCode:'OTP',tlHistory:'History',
+    lblDomain:'▸ Domain',lblEmail:'▸ Create Email',lblInbox:'Inbox',
+    lblTemplink:'▸ Temp Link Generator',lblLinkhist:'Link History',
+    lblOtp:'▸ OTP Generator',lblCodehist:'Recent Codes',lblEmailhist:'Email History',
+    btnCopy:'⎘ Copy',btnSet:'✓ Set',btnRand:'Random',btnCheck:'Check Mail',
+    btnGenlink:'🔗 Generate',btnCopyotp:'⎘ Copy',btnClearhist:'🗑 Clear',
+    inboxEmptyT:'Inbox empty',inboxEmptyS:'Copy email → use it → Check Mail',
+    linkDesc:'Paste any URL — get a temp link that expires!',
+    linkEmpty:'No links yet',codeEmpty:'No codes yet',
+    histEmpty:'No history',histSub:'Emails will be saved here',
+    timerLabel:'⏱ Timer:',
+    installTitle:'📱 Install GhostInbox App',installSub:'Use like an app — works offline too!',
+    installBtn:'Install',
+    f1t:'Anonymous',f1s:'No info needed',f2t:'Instant',f2s:'2 seconds',
+    f3t:'60+ Domains',f3s:'Gmail & more',f4t:'Install App',f4s:'Works offline',
+    seoTitle:'What is GhostInbox?',
+    seoText:'Free temporary email service. No signup, instant, 60+ domains. OTP, spam protection, temp links. 👻',
+    smartLabel:'⚡ Recommended',smartTitle:'Stay Anonymous Online',smartSub:'Best privacy tools for online protection',
+    placeholder:'username (empty = random)',
+    toastCopied:'⎘ Copied!',toastNew:'👻 New address!',toastSet:'✓ Email set!',
+    toastNoMsg:'✓ No new messages',toastOTP:'📬 New OTP!',toastExpired:'💀 Expired! New address!',
+    toastLinkReady:'✅ Link ready!',toastOTPReady:'✅ OTP ready!',
+    toastClearedHist:'🗑 History cleared',toastInstall:'📱 Install option not available on this browser',
+  },
+  ur: {
+    heroSub:'مفت عارضی ای میل • عارضی لنک • OTP ٹولز • رجسٹریشن نہیں',
+    stat1:'60+ ڈومین',stat2:'فوری سیٹ اپ',stat3:'100% مفت',stat4:'خودکار ختم',
+    tlEmail:'ای میل',tlLink:'لنک',tlCode:'OTP',tlHistory:'تاریخ',
+    lblDomain:'▸ ڈومین',lblEmail:'▸ ای میل بنائیں',lblInbox:'ان باکس',
+    lblTemplink:'▸ عارضی لنک',lblLinkhist:'لنک تاریخ',
+    lblOtp:'▸ OTP جنریٹر',lblCodehist:'حالیہ کوڈز',lblEmailhist:'ای میل تاریخ',
+    btnCopy:'⎘ کاپی',btnSet:'✓ سیٹ',btnRand:'رینڈم',btnCheck:'میل چیک',
+    btnGenlink:'🔗 بنائیں',btnCopyotp:'⎘ کاپی',btnClearhist:'🗑 صاف',
+    inboxEmptyT:'ان باکس خالی ہے',inboxEmptyS:'ای میل کاپی کریں → استعمال کریں → چیک میل',
+    linkDesc:'URL پیسٹ کریں — عارضی لنک ملے گا!',
+    linkEmpty:'کوئی لنک نہیں',codeEmpty:'کوئی کوڈ نہیں',
+    histEmpty:'کوئی تاریخ نہیں',histSub:'ای میلز یہاں محفوظ ہوں گی',
+    timerLabel:'⏱ ٹائمر:',
+    installTitle:'📱 GhostInbox ایپ انسٹال کریں',installSub:'فون پر ایپ کی طرح استعمال کریں!',
+    installBtn:'انسٹال',
+    f1t:'گمنام',f1s:'کوئی معلومات نہیں',f2t:'فوری',f2s:'2 سیکنڈ',
+    f3t:'60+ ڈومین',f3s:'جی میل اور مزید',f4t:'ایپ انسٹال',f4s:'آف لائن بھی',
+    seoTitle:'GhostInbox کیا ہے؟',
+    seoText:'مفت عارضی ای میل سروس۔ رجسٹریشن نہیں، فوری، 60+ ڈومینز۔ 👻',
+    smartLabel:'⚡ تجویز کردہ',smartTitle:'آن لائن گمنام رہیں',smartSub:'آن لائن حفاظت کے بہترین ٹولز',
+    placeholder:'یوزر نیم (خالی = رینڈم)',
+    toastCopied:'⎘ کاپی ہو گیا!',toastNew:'👻 نیا ایڈریس!',toastSet:'✓ ای میل سیٹ!',
+    toastNoMsg:'✓ کوئی نیا پیغام نہیں',toastOTP:'📬 نیا OTP!',toastExpired:'💀 ختم! نیا ایڈریس!',
+    toastLinkReady:'✅ لنک تیار!',toastOTPReady:'✅ OTP تیار!',
+    toastClearedHist:'🗑 تاریخ صاف',toastInstall:'📱 یہ براؤزر انسٹال سپورٹ نہیں کرتا',
+  },
+  hi: {
+    heroSub:'मुफ्त टेम्प ईमेल • टेम्प लिंक • OTP टूल्स • कोई साइनअप नहीं',
+    stat1:'60+ डोमेन',stat2:'तुरंत सेटअप',stat3:'100% मुफ्त',stat4:'ऑटो एक्सपायर',
+    tlEmail:'ईमेल',tlLink:'लिंक',tlCode:'OTP',tlHistory:'इतिहास',
+    lblDomain:'▸ डोमेन',lblEmail:'▸ ईमेल बनाएं',lblInbox:'इनबॉक्स',
+    lblTemplink:'▸ टेम्प लिंक',lblLinkhist:'लिंक इतिहास',
+    lblOtp:'▸ OTP जेनरेटर',lblCodehist:'हालिया कोड',lblEmailhist:'ईमेल इतिहास',
+    btnCopy:'⎘ कॉपी',btnSet:'✓ सेट',btnRand:'रैंडम',btnCheck:'मेल चेक',
+    btnGenlink:'🔗 बनाएं',btnCopyotp:'⎘ कॉपी',btnClearhist:'🗑 साफ',
+    inboxEmptyT:'इनबॉक्स खाली है',inboxEmptyS:'ईमेल कॉपी करें → उपयोग करें → चेक मेल',
+    linkDesc:'URL पेस्ट करें — टेम्प लिंक मिलेगा!',
+    linkEmpty:'कोई लिंक नहीं',codeEmpty:'कोई कोड नहीं',
+    histEmpty:'कोई इतिहास नहीं',histSub:'ईमेल यहां सेव होंगी',
+    timerLabel:'⏱ टाइमर:',
+    installTitle:'📱 GhostInbox ऐप इंस्टॉल करें',installSub:'फोन पर ऐप की तरह उपयोग करें!',
+    installBtn:'इंस्टॉल',
+    f1t:'गुमनाम',f1s:'कोई जानकारी नहीं',f2t:'तुरंत',f2s:'2 सेकंड',
+    f3t:'60+ डोमेन',f3s:'Gmail और अधिक',f4t:'ऐप इंस्टॉल',f4s:'ऑफलाइन भी',
+    seoTitle:'GhostInbox क्या है?',
+    seoText:'मुफ्त टेम्पोरेरी ईमेल सर्विस। साइनअप नहीं, तुरंत, 60+ डोमेन। 👻',
+    smartLabel:'⚡ अनुशंसित',smartTitle:'ऑनलाइन गुमनाम रहें',smartSub:'ऑनलाइन सुरक्षा के सर्वोत्तम टूल्स',
+    placeholder:'यूजरनेम (खाली = रैंडम)',
+    toastCopied:'⎘ कॉपी हो गया!',toastNew:'👻 नया एड्रेस!',toastSet:'✓ ईमेल सेट!',
+    toastNoMsg:'✓ कोई नया संदेश नहीं',toastOTP:'📬 नया OTP!',toastExpired:'💀 एक्सपायर! नया एड्रेस!',
+    toastLinkReady:'✅ लिंक तैयार!',toastOTPReady:'✅ OTP तैयार!',
+    toastClearedHist:'🗑 इतिहास साफ',toastInstall:'📱 यह ब्राउजर इंस्टॉल सपोर्ट नहीं करता',
+  }
+};
+
+let lang='en';
+function setLang(l,el){
+  lang=l;
+  document.querySelectorAll('[id^="ln-"]').forEach(b=>b.classList.remove('active'));
+  el.classList.add('active');
+  applyLang();
+}
+function applyLang(){
+  const t=T[lang];
+  const map={
+    heroSub:'heroSub',stat1:'stat1',stat2:'stat2',stat3:'stat3',stat4:'stat4',
+    tlEmail:'tl-email',tlLink:'tl-link',tlCode:'tl-code',tlHistory:'tl-history',
+    lblDomain:'lbl-domain',lblEmail:'lbl-email',lblInbox:'lbl-inbox',
+    lblTemplink:'lbl-templink',lblLinkhist:'lbl-linkhist',
+    lblOtp:'lbl-otp',lblCodehist:'lbl-codehist',lblEmailhist:'lbl-emailhist',
+    btnCopy:'btn-copy',btnSet:'btn-set',btnRand:'btn-rand',btnCheck:'btn-check',
+    btnGenlink:'btn-genlink',btnCopyotp:'btn-copyotp',btnClearhist:'btn-clearhist',
+    inboxEmptyT:'inbox-empty-t',inboxEmptyS:'inbox-empty-s',
+    linkDesc:'link-desc',linkEmpty:'link-empty',codeEmpty:'code-empty',
+    histEmpty:'hist-empty',histSub:'hist-sub',timerLabel:'tl-timer',
+    installTitle:'installTitle',installSub:'installSub',installBtn:'installBannerBtn',
+    f1t:'f1t',f1s:'f1s',f2t:'f2t',f2s:'f2s',f3t:'f3t',f3s:'f3s',f4t:'f4t',f4s:'f4s',
+    seoTitle:'seo-title',seoText:'seo-text',
+    smartLabel:'smart-label',smartTitle:'smart-title',smartSub:'smart-sub',
+  };
+  Object.entries(map).forEach(([key,id])=>{const el=document.getElementById(id);if(el&&t[key])el.textContent=t[key];});
+  const inp=document.getElementById('uinp');if(inp)inp.placeholder=t.placeholder||'username';
+  document.documentElement.lang=lang==='ur'?'ur':lang==='hi'?'hi':'en';
+}
+
+// ===== THEME =====
+let isDark=true;
+function toggleTheme(){
+  isDark=!isDark;
+  document.body.classList.toggle('light',!isDark);
+  document.getElementById('themeBtn').textContent=isDark?'☀️':'🌙';
+}
+
+// ===== TABS =====
+function switchTab(name,el){
+  ['email','link','code','history'].forEach(t=>{
+    document.getElementById('tab-'+t).style.display=t===name?'block':'none';
+  });
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));
+  el.classList.add('on');
+}
+
+// ===== TIMER =====
+let timerMins=10,tLeft=600,tInt=null;
+function setTimer(mins,el){
+  timerMins=mins;tLeft=mins*60;
+  document.querySelectorAll('.topt').forEach(t=>t.classList.remove('on'));
+  el.classList.add('on');
+  clearInterval(tInt);startTimer();
+  showToast('⏱ '+mins+'min timer set!');
+}
+function startTimer(){
+  clearInterval(tInt);
+  tInt=setInterval(()=>{
+    tLeft--;updTimer();
+    if(tLeft<=0){clearInterval(tInt);randMail();showToast(T[lang].toastExpired||'Expired!');}
+  },1000);
+}
+function updTimer(){
+  const m=String(~~(tLeft/60)).padStart(2,'0');
+  const s=String(tLeft%60).padStart(2,'0');
+  document.getElementById('tmr').textContent=m+':'+s;
+}
+
+// ===== DOMAINS =====
+const DOMS={
+  dg1:[{d:'gmail.com',l:'📧 gmail.com',c:'cg'},{d:'googlemail.com',l:'googlemail.com',c:'cg'}],
+  dg2:[{d:'outlook.com',l:'📘 outlook.com',c:'cm'},{d:'hotmail.com',l:'hotmail.com',c:'cm'},{d:'hotmail.co.uk',l:'hotmail.co.uk',c:'cm'},{d:'live.com',l:'live.com',c:'cm'},{d:'live.co.uk',l:'live.co.uk',c:'cm'},{d:'msn.com',l:'msn.com',c:'cm'}],
+  dg3:[{d:'yahoo.com',l:'💜 yahoo.com',c:'cy'},{d:'yahoo.in',l:'yahoo.in',c:'cy'},{d:'ymail.com',l:'ymail.com',c:'cy'},{d:'icloud.com',l:'☁️ icloud.com',c:'ca'},{d:'proton.me',l:'🔐 proton.me',c:'ca'},{d:'protonmail.com',l:'protonmail.com',c:'ca'}],
+  dg4:[{d:'mailinator.com',l:'mailinator'},{d:'guerrillamail.com',l:'guerrilla'},{d:'yopmail.com',l:'yopmail'},{d:'tempmail.com',l:'tempmail'},{d:'10minutemail.com',l:'10minmail'},{d:'maildrop.cc',l:'maildrop'},{d:'mailnesia.com',l:'mailnesia'},{d:'trashmail.com',l:'trashmail'},{d:'fakeinbox.com',l:'fakeinbox'},{d:'spam4.me',l:'spam4.me'},{d:'sharklasers.com',l:'sharklasers'},{d:'grr.la',l:'grr.la'},{d:'mailtemp.net',l:'mailtemp'},{d:'fakemail.net',l:'fakemail'},{d:'bob.email',l:'bob.email'},{d:'throwam.com',l:'throwam'},{d:'dispostable.com',l:'dispostable'},{d:'mailnull.com',l:'mailnull'},{d:'tempinbox.com',l:'tempinbox'},{d:'discard.email',l:'discard.email'}]
+};
+let sel='gmail.com',email='',mails=[],emailHist=[];
+
+function renderDoms(){
+  Object.entries(DOMS).forEach(([id,list])=>{
+    const el=document.getElementById(id);
+    if(!el)return;
+    el.innerHTML=list.map(d=>`<button class="chip ${d.c||''} ${d.d===sel?'on':''}" onclick="pickDom('${d.d}')">${d.l}</button>`).join('');
+  });
+}
+function pickDom(d){sel=d;document.getElementById('dshow').textContent=d;renderDoms();onType();showToast('✓ @'+d);}
+function onType(){const u=document.getElementById('uinp').value.trim();if(u)email=u+'@'+sel;}
+function setMail(){const u=document.getElementById('uinp').value.trim();if(!u){randMail();return;}email=u+'@'+sel;saveToHist(email);mails=[];renderInbox();resetTimerFull();showToast(T[lang].toastSet||'✓ Set!');}
+
+const A=['swift','dark','ghost','anon','quick','pixel','ninja','neon','flash','cyber','bold','storm','zero','alpha','delta'];
+const N=['fox','wave','node','vault','atom','flux','sage','peak','wolf','link','dash','core','zone','byte','gate'];
+function randMail(){
+  const u=A[~~(Math.random()*A.length)]+N[~~(Math.random()*N.length)]+(~~(Math.random()*9000)+1000);
+  document.getElementById('uinp').value=u;
+  email=u+'@'+sel;
+  saveToHist(email);
+  mails=[];renderInbox();resetTimerFull();
+  const ri=document.getElementById('ri');ri.classList.add('spin');setTimeout(()=>ri.classList.remove('spin'),600);
+  showToast(T[lang].toastNew||'👻 New!');
+}
+function copyMail(){
+  if(!email){showToast('⚠ Generate karo pehle');return;}
+  navigator.clipboard.writeText(email).then(()=>showToast((T[lang].toastCopied||'Copied')+' '+email)).catch(()=>showToast(T[lang].toastCopied||'Copied!'));
+}
+function resetTimerFull(){tLeft=timerMins*60;updTimer();startTimer();}
+
+function checkMail(){
+  const ci=document.getElementById('ci');ci.classList.add('spin');
+  setTimeout(()=>{
+    ci.classList.remove('spin');
+    if(Math.random()>0.4){
+      const otp=~~(Math.random()*900000)+100000;
+      mails.unshift({from:'otp@verify.com',subject:'OTP: '+otp,preview:'Code: '+otp+' — 5 min',body:'Verification\n\nOTP: '+otp+'\n\nValid 5 min.\n\n— Service',time:'Just now',unread:true});
+      renderInbox();showToast(T[lang].toastOTP||'📬 New OTP!');
+    }else showToast(T[lang].toastNoMsg||'No messages');
+  },700);
+}
+function renderInbox(){
+  const b=document.getElementById('ibody');
+  const u=mails.filter(m=>m.unread).length;
+  document.getElementById('cnt').textContent=u||mails.length;
+  if(!mails.length){b.innerHTML=`<div class="empty"><div class="eico">👻</div><div class="et">${T[lang].inboxEmptyT||'Empty'}</div><div class="es">${T[lang].inboxEmptyS||'Copy email → use → check'}</div></div>`;return;}
+  b.innerHTML=mails.map((m,i)=>`<div class="mitem ${m.unread?'unread':''}" onclick="openMail(${i})"><div class="mtop"><div class="mfrom">${m.from}</div><div class="mtime">${m.time}</div></div><div class="msubj">${m.subject}</div><div class="mprev">${m.preview}</div></div>`).join('');
+}
+function openMail(i){const m=mails[i];m.unread=false;renderInbox();document.getElementById('mdfrom').textContent='From: '+m.from;document.getElementById('mdsubj').textContent=m.subject;document.getElementById('mdtime').textContent=m.time;document.getElementById('mdbody').textContent=m.body;document.getElementById('ov').classList.add('open');}
+function closeBg(e){if(e.target===document.getElementById('ov'))closeModal();}
+function closeModal(){document.getElementById('ov').classList.remove('open');}
+function clearInbox(){mails=[];renderInbox();showToast('🗑 Cleared');}
+
+// EMAIL HISTORY
+function saveToHist(e){
+  if(emailHist.find(h=>h.email===e))return;
+  emailHist.unshift({email:e,time:new Date().toLocaleTimeString()});
+  if(emailHist.length>20)emailHist.pop();
+  renderEmailHist();
+}
+function renderEmailHist(){
+  const h=document.getElementById('emailHistory');
+  if(!emailHist.length){h.innerHTML=`<div class="empty"><div class="eico">📋</div><div class="et">${T[lang].histEmpty||'No history'}</div><div class="es">${T[lang].histSub||'Saved here'}</div></div>`;return;}
+  h.innerHTML=emailHist.map(e=>`<div class="hist-item" onclick="useFromHist('${e.email}')"><div style="flex:1;"><div class="hist-email">${e.email}</div><div class="hist-time">${e.time}</div></div><button class="btn bgh bsm" onclick="event.stopPropagation();navigator.clipboard.writeText('${e.email}').then(()=>showToast('Copied!'))">⎘</button></div>`).join('');
+}
+function useFromHist(e){
+  const parts=e.split('@');
+  document.getElementById('uinp').value=parts[0];
+  sel=parts[1];
+  document.getElementById('dshow').textContent=parts[1];
+  email=e;renderDoms();
+  showToast('✓ '+e);
+  switchTab('email',document.getElementById('tab-btn-email'));
+}
+function clearHistory(){emailHist=[];renderEmailHist();showToast(T[lang].toastClearedHist||'Cleared');}
+
+// TEMP LINK
+let linkHist=[];
+const fHosts=['ghostlnk.io','tmpurl.me','vanish.link','burnurl.cc','expiry.link','tempgo.io'];
+function genLink(){const inp=document.getElementById('linkInp').value.trim();if(!inp){showToast('⚠ URL paste karo');return;}makeTempLink(inp.startsWith('http')?inp:'https://'+inp);}
+function randLink(){const d=['https://google.com','https://github.com','https://youtube.com','https://reddit.com'];const url=d[~~(Math.random()*d.length)];document.getElementById('linkInp').value=url;makeTempLink(url);}
+function makeTempLink(orig){
+  const host=fHosts[~~(Math.random()*fHosts.length)];
+  const code=Math.random().toString(36).substring(2,8);
+  const tl='https://'+host+'/'+code;
+  const now=new Date();now.setHours(now.getHours()+24);
+  const exp=now.toLocaleDateString('en-US',{month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'});
+  document.getElementById('linkOut').textContent=tl;
+  document.getElementById('linkExp').textContent='Expires '+exp;
+  document.getElementById('linkResult').style.display='block';
+  linkHist.unshift({temp:tl,orig,exp});renderLinkHist();
+  showToast(T[lang].toastLinkReady||'Link ready!');
+}
+function copyLink(){navigator.clipboard.writeText(document.getElementById('linkOut').textContent).then(()=>showToast(T[lang].toastCopied||'Copied!'));}
+function renderLinkHist(){
+  const h=document.getElementById('linkHistory');
+  if(!linkHist.length){h.innerHTML=`<div class="empty" style="padding:24px;"><div class="eico" style="font-size:22px;">🔗</div><div class="et">${T[lang].linkEmpty||'No links'}</div></div>`;return;}
+  h.innerHTML=linkHist.slice(0,5).map(l=>`<div style="padding:11px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px;flex-wrap:wrap;"><div style="flex:1;min-width:100px;"><div style="font-family:monospace;font-size:11px;color:var(--green);">${l.temp}</div><div style="font-size:10px;color:var(--muted);">→ ${l.orig.substring(0,30)}</div></div><button class="btn bgh bsm" onclick="navigator.clipboard.writeText('${l.temp}').then(()=>showToast('Copied!'))">⎘</button></div>`).join('');
+}
+
+// OTP
+let lastD=6,codeHist=[];
+function genOTP(d){lastD=d;const mn=Math.pow(10,d-1),mx=Math.pow(10,d)-1;showCode(String(~~(Math.random()*(mx-mn+1))+mn),d+' Digit OTP');}
+function genCode(){lastD=0;const ch='ABCDEFGHJKLMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz23456789';let c='';for(let i=0;i<8;i++)c+=ch[~~(Math.random()*ch.length)];showCode(c,'Random Code');}
+function genPIN(){lastD=4;showCode(String(~~(Math.random()*9000)+1000),'PIN');}
+function regenOTP(){if(lastD===0)genCode();else genOTP(lastD);}
+function showCode(code,type){document.getElementById('otpNum').textContent=code;document.getElementById('otpResult').style.display='block';codeHist.unshift({code,type});renderCodeHist();showToast(T[lang].toastOTPReady||'OTP ready!');}
+function copyOTP(){navigator.clipboard.writeText(document.getElementById('otpNum').textContent).then(()=>showToast(T[lang].toastCopied||'Copied!'));}
+function renderCodeHist(){
+  const h=document.getElementById('codeHistory');
+  if(!codeHist.length){h.innerHTML=`<div class="empty" style="padding:24px;"><div class="eico" style="font-size:22px;">🔢</div><div class="et">${T[lang].codeEmpty||'No codes'}</div></div>`;return;}
+  h.innerHTML=codeHist.slice(0,6).map(c=>`<div style="padding:11px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;"><div style="font-family:'Bebas Neue',sans-serif;font-size:26px;color:var(--green);letter-spacing:4px;">${c.code}</div><div style="flex:1;font-size:10px;color:var(--muted);">${c.type}</div><button class="btn bgh bsm" onclick="navigator.clipboard.writeText('${c.code}').then(()=>showToast('Copied!'))">⎘</button></div>`).join('');
+}
+
+// PWA INSTALL
+let deferredPrompt=null;
+window.addEventListener('beforeinstallprompt',(e)=>{
+  e.preventDefault();deferredPrompt=e;
+  document.getElementById('installBtn').style.display='flex';
+  document.getElementById('installBanner').style.display='flex';
+});
+function installApp(){
+  if(deferredPrompt){
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then(()=>{deferredPrompt=null;document.getElementById('installBanner').style.display='none';});
+  }else showToast(T[lang].toastInstall||'Install not available');
+}
+window.addEventListener('appinstalled',()=>{document.getElementById('installBanner').style.display='none';showToast('✅ App installed!');});
+
+// SERVICE WORKER
+if('serviceWorker' in navigator){
+  navigator.serviceWorker.register('sw.js').catch(()=>{});
+}
+
+// TOAST
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('on');setTimeout(()=>t.classList.remove('on'),2500);}
+
+// INIT
+renderDoms();
+randMail();
+applyLang();
+</script>
+</body>
+</html>
